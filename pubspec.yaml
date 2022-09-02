@@ -41,6 +41,7 @@ dependencies:
   test: ^1.21.1
   mockito: ^5.3.0
   flutter_bloc: ^8.1.1
+  google_fonts: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -83,10 +84,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Fantasque
+      fonts:
+        - asset: assets/fonts/Fantasque.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
