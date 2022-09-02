@@ -5,7 +5,8 @@ A small app to showcase mastery in bloc architecture, api requests and TDD(api m
 ### Background
 
 Randomly generates an anime quote. 
-    <img src="https://github.com/samuelkanyi/anime_quote/screenshots/screenshot.png" width="270"/>
+    ![screenshot](https://user-images.githubusercontent.com/33036027/188038472-c536557d-e44f-4c3b-af06-94a7b9388339.png)
+
 
 
 ## Tech-stack
