@@ -56,6 +56,12 @@ dev_dependencies:
   build_runner: ^2.2.0
   freezed: ^2.1.0+1
   json_serializable: ^6.3.1
+  flutter_launcher_icons: ^0.10.0
+
+flutter_icons:
+  android: 'launche_icon'
+  ios: true
+  image_path: 'assets/launcher.png'
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

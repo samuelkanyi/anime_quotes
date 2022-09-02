@@ -2,7 +2,7 @@
     package="com.example.anime_quote">
    <application
         android:label="anime_quote"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launche_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
