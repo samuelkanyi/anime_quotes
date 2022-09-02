@@ -5,8 +5,7 @@ A small app to showcase mastery in bloc architecture, api requests and TDD(api m
 ### Background
 
 Randomly generates an anime quote. 
-    ![screenshot](/screenshots/screenshot.png)
-
+    [!screenshot](/screenshots/screenshot.jpg)
 
 
 ## Tech-stack
