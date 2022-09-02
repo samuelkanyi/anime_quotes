@@ -34,6 +34,14 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  http: ^0.13.5
+  bloc: ^8.1.0
+  bloc_test: ^9.1.0
+  hydrated_bloc: ^8.1.0
+  test: ^1.21.1
+  mockito: ^5.3.0
+  flutter_bloc: ^8.1.1
+  google_fonts: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -45,6 +53,15 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  build_runner: ^2.2.0
+  freezed: ^2.1.0+1
+  json_serializable: ^6.3.1
+  flutter_launcher_icons: ^0.10.0
+
+flutter_icons:
+  android: 'launche_icon'
+  ios: true
+  image_path: 'assets/launcher.png'
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -73,10 +90,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Fantasque
+      fonts:
+        - asset: assets/fonts/Fantasque.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
