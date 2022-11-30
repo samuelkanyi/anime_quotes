@@ -41,12 +41,12 @@ jobs:
       #   run: flutter test
 
       
-      - name: Gradlew Clean
-        working-directory: ${{ github.workspace }}/android
-        run: gradlew clean
-      
       - name: build
         run: gradle build
 
       - name: publish
         run: gradle publish
+      
+      - name: Gradlew Clean
+        working-directory: ${{ github.workspace }}/android
+        run: ./gradlew clean
