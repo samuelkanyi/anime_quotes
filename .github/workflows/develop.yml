@@ -1,0 +1,40 @@
+name: Flutter GH Actions
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  build:
+    runs-on: macos12
+
+    steps:
+      - name: Xcode version
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version:  "13.3.1"
+
+      - name: checkout    
+        uses: actions/checkout@v2
+
+      - name: Setup Flutter SDK
+        uses: flutter-actions/setup-flutter@v2
+        with:
+          channel: stable
+          version: 3.0.2
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze project source
+        run: dart analyze
+
+      - name: Run tests
+        run: flutter test
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Gradlew Clean
+        working-directory: ${{ github.workspace }}/android
+        run: ./gradlew clean
