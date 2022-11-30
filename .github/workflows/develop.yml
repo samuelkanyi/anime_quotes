@@ -37,4 +37,4 @@ jobs:
 
       - name: Gradlew Clean
         working-directory: ${{ github.workspace }}/android
-        run: ./gradlew clean
+        run: gradlew clean
