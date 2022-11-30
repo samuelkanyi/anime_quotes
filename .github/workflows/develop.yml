@@ -33,18 +33,13 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
-
-      - name: Analyze project source
-        run: dart analyze
-
-      # - name: Run tests
-      #   run: flutter test
-
       
       - name: build
+        working-directory: ${{ github.workspace }}/android
         run: gradle build
 
       - name: publish
+        working-directory: ${{ github.workspace }}/android
         run: gradle publish
       
       - name: Gradlew Clean
