@@ -30,29 +30,9 @@ jobs:
         with:
           flutter-version: "2.10.5"
           channel: "stable"
-          
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.5.0'
-          
-      - name: Update gems
-        run: gem update --system
-
+      
       - name: Sync dependencies
         run: flutter pub get
-
-      - name: Run tests
-        run: flutter test
-
-      
-      - name: Install bundle on Android directory
-        working-directory: ${{ github.workspace }}/android
-        run: bundle install
-
-      - name: Install Firebase app distribution
-        working-directory: ${{ github.workspace }}/android
-        run: bundle exec fastlane add_plugin firebase_app_distribution
 
       - name: Remove duplicate classes
         working-directory: ${{ github.workspace }}/android
