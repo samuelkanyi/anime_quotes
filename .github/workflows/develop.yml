@@ -1,42 +1,39 @@
-name: Testing Deployment
+name: Flutter GH Actions
 
 on:
   push:
-    branches: [develop]
+    branches: [ develop ]
 
 jobs:
-  build_and_deploy:
+  build:
     runs-on: macos-12
 
     steps:
       - name: Xcode version
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: "13.3.1"
-          
-      - name: Checkout
+          xcode-version:  "13.3.1"
+
+      - name: checkout    
         uses: actions/checkout@v2
-
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-
-      - name: Install Java
+      
+      - name: Java setup
         uses: actions/setup-java@v1
         with:
-          java-version: "12.x"
-          
-      - name: Install Flutter
-        uses: subosito/flutter-action@v1
-        with:
-          flutter-version: "2.10.5"
-          channel: "stable"
-      
-      - name: Sync dependencies
-        run: flutter pub get
+          java-version: 1.8
 
-      - name: Remove duplicate classes
+      - name: Setup Flutter SDK
+        uses: flutter-actions/setup-flutter@v2
+        with:
+          channel: stable
+          version: 3.0.2
+
+      - name: Install dependencies
+        run: flutter pub get
+      
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+          
+      - name: Execute Gradle build
         working-directory: ${{ github.workspace }}/android
         run: gradle clean build
-
-      - name: Build aab
-        run: flutter build appbundle 
