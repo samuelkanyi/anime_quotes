@@ -70,13 +70,14 @@ class QuotesHome extends StatelessWidget {
             context.read<QuoteCubit>().fetchQuote();
           },
           child: const Text("new quote"),
-          style: ElevatedButton.styleFrom(foregroundColor: AppColor.darkRedColor),
+          style:
+              ElevatedButton.styleFrom(foregroundColor: AppColor.darkRedColor),
         ),
       ),
     );
   }
 
-  Widget _buildLoaded(BuildContext context, Quote quote) {
+  Widget _buildLoaded(BuildContext context, QuoteResponse quote) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 36),
       width: MediaQuery.of(context).size.width,
@@ -85,16 +86,18 @@ class QuotesHome extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Spacer(),
-          Text(
-            quote.quote,
-            textAlign: TextAlign.center,
-            style: style.copyWith(fontSize: 30, fontFamily: 'Fantasque'),
-          ),
+          Wrap(children: [
+            Text(
+              quote.data.content,
+              textAlign: TextAlign.center,
+              style: style.copyWith(fontSize: 30, fontFamily: 'Fantasque'),
+            ),
+          ]),
           const SizedBox(
             height: 50,
           ),
           Text(
-            quote.anime,
+            quote.data.anime.name,
             textAlign: TextAlign.center,
             style: GoogleFonts.raleway(textStyle: style.copyWith(fontSize: 20)),
           ),
@@ -102,7 +105,7 @@ class QuotesHome extends StatelessWidget {
             height: 8,
           ),
           Text(
-            quote.character,
+            quote.data.character.name,
             textAlign: TextAlign.center,
             style: GoogleFonts.lato(
                 textStyle: style.copyWith(fontSize: 18),
@@ -121,7 +124,8 @@ class QuotesHome extends StatelessWidget {
                   context.read<QuoteCubit>().fetchQuote();
                 },
                 child: const Text("New Anime Quote"),
-                style: ElevatedButton.styleFrom(foregroundColor: AppColor.darkRedColor),
+                style: ElevatedButton.styleFrom(
+                    foregroundColor: AppColor.darkRedColor),
               ),
             ),
           )

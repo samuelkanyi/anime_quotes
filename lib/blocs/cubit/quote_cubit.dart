@@ -12,7 +12,7 @@ class QuoteCubit extends Cubit<QuoteState> {
   Future<void> fetchQuote() async {
     try {
       emit(QuoteLoading());
-      Quote quote = await api.fetchRandomQuote();
+      QuoteResponse quote = await api.fetchRandomQuote();
       emit(QuoteLoaded(quote));
     } on Exception catch (e) {
       emit(QuoteError(e.toString()));
