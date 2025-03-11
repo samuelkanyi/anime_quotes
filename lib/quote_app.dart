@@ -3,8 +3,6 @@ import 'package:anime_quote/blocs/cubit/quote_cubit.dart';
 import 'package:anime_quote/model/quote.dart';
 import 'package:anime_quote/util/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
