@@ -72,7 +72,7 @@ class QuotesHome extends StatelessWidget {
             context.read<QuoteCubit>().fetchQuote();
           },
           child: const Text("new quote"),
-          style: ElevatedButton.styleFrom(primary: AppColor.darkRedColor),
+          style: ElevatedButton.styleFrom(foregroundColor: AppColor.darkRedColor),
         ),
       ),
     );
@@ -123,7 +123,7 @@ class QuotesHome extends StatelessWidget {
                   context.read<QuoteCubit>().fetchQuote();
                 },
                 child: const Text("New Anime Quote"),
-                style: ElevatedButton.styleFrom(primary: AppColor.darkRedColor),
+                style: ElevatedButton.styleFrom(foregroundColor: AppColor.darkRedColor),
               ),
             ),
           )
