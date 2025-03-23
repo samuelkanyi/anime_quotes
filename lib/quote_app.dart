@@ -41,7 +41,6 @@ class _QuotesHomeState extends State<QuotesHome> with TickerProviderStateMixin {
     // TODO: implement initState
     super.initState();
     controller = GifController(vsync: this);
-    
   }
 
   @override
@@ -61,8 +60,8 @@ class _QuotesHomeState extends State<QuotesHome> with TickerProviderStateMixin {
               return Container(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
+                decoration: BoxDecoration(
+                  color: AppColor.gifColor,
                 ),
                 child: Center(
                   child: Gif(
@@ -71,7 +70,7 @@ class _QuotesHomeState extends State<QuotesHome> with TickerProviderStateMixin {
                         controller, // if duration and fps is null, original gif fps will be used.
                     //fps: 30,
                     //duration: const Duration(seconds: 3),
-                    autostart: Autostart.no,
+                    autostart: Autostart.loop,
                     placeholder: (context) => const Text('Loading...'),
                     onFetchCompleted: () {
                       controller.reset();
