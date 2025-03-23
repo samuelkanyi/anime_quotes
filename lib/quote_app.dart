@@ -4,6 +4,7 @@ import 'package:anime_quote/model/quote.dart';
 import 'package:anime_quote/util/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gif/gif.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AnimeQuote extends StatelessWidget {
@@ -23,11 +24,26 @@ class AnimeQuote extends StatelessWidget {
 }
 
 // ignore: must_be_immutable
-class QuotesHome extends StatelessWidget {
+class QuotesHome extends StatefulWidget {
   QuotesHome({Key? key}) : super(key: key);
 
+  @override
+  State<QuotesHome> createState() => _QuotesHomeState();
+}
+
+class _QuotesHomeState extends State<QuotesHome> with TickerProviderStateMixin {
   TextStyle style = const TextStyle(
       color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500);
+
+  late GifController controller;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller = GifController(vsync: this);
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,8 +58,27 @@ class QuotesHome extends StatelessWidget {
           },
           builder: (context, state) {
             if (state is QuoteLoading) {
-              return const Center(
-                child: CircularProgressIndicator(),
+              return Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Center(
+                  child: Gif(
+                    image: AssetImage("assets/gon_waiting.gif"),
+                    controller:
+                        controller, // if duration and fps is null, original gif fps will be used.
+                    //fps: 30,
+                    //duration: const Duration(seconds: 3),
+                    autostart: Autostart.no,
+                    placeholder: (context) => const Text('Loading...'),
+                    onFetchCompleted: () {
+                      controller.reset();
+                      controller.forward();
+                    },
+                  ),
+                ),
               );
             } else if (state is QuoteInitial) {
               return _buildInitial(context);
@@ -90,7 +125,7 @@ class QuotesHome extends StatelessWidget {
             Text(
               quote.data.content,
               textAlign: TextAlign.center,
-              style: style.copyWith(fontSize: 30, fontFamily: 'Fantasque'),
+              style: style.copyWith(fontSize: 22, fontFamily: 'Fantasque'),
             ),
           ]),
           const SizedBox(
